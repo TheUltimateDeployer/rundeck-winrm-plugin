@@ -8,7 +8,9 @@ apply plugin: 'idea'
 apply plugin: 'project-report'
 sourceCompatibility = 1.6
 archivesBaseName = "rundeck-winrm-plugin"
-ext.rundeckVersion='2.3.2'
+ext.rundeckVersion ='2.3.2'
+
+ext.overthereVersion = '5.0.2'
 
 
 
@@ -30,7 +32,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    pluginLibs(group: 'com.xebialabs.overthere', name: 'overthere', version: '5.0.2'){
+    pluginLibs(group: 'com.xebialabs.overthere', name: 'overthere', version: overthereVersion){
         exclude( module: 'bcprov-jdk15on')
         exclude( module: 'jzlib')
         exclude( module: 'sshj')
@@ -43,9 +45,10 @@ dependencies {
         exclude( module: 'icu4j')
         exclude( module: 'jcl-over-slf4j')
     }
-//    pluginLibs(group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.3')
-    pluginLibs(group: 'org.slf4j', name: 'slf4j-nop', version: '1.6.3')
 
+    pluginLibs(group: 'com.hierynomus', name: 'sshj', version: '0.26.0')
+    pluginLibs(group: 'com.hierynomus', name: 'smbj', version: '0.8.0')
+    pluginLibs(group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25')
     compile(group: 'org.rundeck', name: 'rundeck-core', version: rundeckVersion)
 }
 
